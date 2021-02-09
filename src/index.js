@@ -7,43 +7,44 @@ const port = process.env.PORT || process.env.NODE_PORT || 3000;
 const getRandomJoke = (num) => {
 	jokes = [
 		{
-			q: 'Why did the chicken cross the road?',
+			q: 'Why did the chicken cross the road?1',
 			a: 'To get to the other side!',
 		},
 		{
-			q: 'I dont trust stairs',
+			q: 'I dont trust stairs1',
 			a: 'They are always up to something!',
 		},
 		{
-			q: 'Dad, did you get a haircut?',
+			q: 'Dad, did you get a haircut?1',
 			a: 'No, I got them all cut!',
 		},
 		{
-			q: 'My wife is really mad at the fact that I have no sense of direction.',
+			q:
+				'My wife is really mad at the fact that I have no sense of direction.1',
 			a: 'So I packed up my stuff and right!',
 		},
 		{
-			q: 'Why wont eggds tell jokes?',
+			q: 'Why wont eggds tell jokes?1',
 			a: 'They would crack each other up',
 		},
 		{
-			q: 'Why cant a nose be 12 inches long?',
+			q: 'Why cant a nose be 12 inches long?1',
 			a: 'Because then it would be a foot!',
 		},
 		{
-			q: 'What concert cost just 45 cents?',
+			q: 'What concert cost just 45 cents?1',
 			a: '50 Cent featuring Nickelback!',
 		},
 		{
-			q: 'Why did the math book look so sad?',
+			q: 'Why did the math book look so sad?1',
 			a: 'Becuase of all its problems!',
 		},
 		{
-			q: 'What do you call cheese that is not yours',
+			q: 'What do you call cheese that is not yours1',
 			a: 'Nacho Cheese!',
 		},
 		{
-			q: 'Here is a joke for your dogs',
+			q: 'Here is a joke for your dogs1',
 			a: 'woof woof woof? woof woof!',
 		},
 	];
