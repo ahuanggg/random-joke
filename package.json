@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests complete\"",
     "nodemon": "nodemon ./src/index.js -e js,html,css",
     "start": "node ./src/index.js"
   },
@@ -21,6 +22,10 @@
   "description": "",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
   }
 }
