@@ -16,9 +16,9 @@ const errorPage = `
 `;
 
 const get404response = (request, response) => {
-	response.writeHead(404, { 'Content-Type': 'text/html' });
-	response.write(errorPage);
-	response.end();
+  response.writeHead(404, { 'Content-Type': 'text/html' });
+  response.write(errorPage);
+  response.end();
 };
 
 module.exports.get404response = get404response;

@@ -11,6 +11,8 @@
         "ecmaVersion": 12
     },
     "rules": {
-        
+        "no-param-reassign" : 0,
+        "no-plusplus": 0,
+        "no-tabs" : 1
     }
 }
