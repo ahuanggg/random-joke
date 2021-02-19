@@ -1,6 +1,8 @@
 // console.log('First web service starting up ...');
 const http = require('http');
 const url = require('url');
+const query = require('querystring');
+console.log(query);
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -18,8 +20,11 @@ const onRequest = (request, response) => {
 	const parsedUrl = url.parse(request.url);
 	const { pathname } = parsedUrl;
 
+	const params = query.parse(parsedUrl.query);
+	const { limit } = params;
+
 	if (pathname === '/random-joke') {
-		urlStruct[pathname](request, response);
+		urlStruct[pathname](request, response, params);
 	} else {
 		urlStruct.notFound(request, response);
 	}

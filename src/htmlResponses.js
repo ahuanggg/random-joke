@@ -6,8 +6,11 @@ const errorPage = `
     </head>
     <body>
         <h1> 404 - File Not Found! </h1>
-        <p> Check your IRL, or your typing! </p>
-        <p> :-0 </p>
+        <p> 
+            Check your IRL, or your typing! <a href="/random-joke">random-joke</a> or <a href="/random-joke?limit=2">random-joke?limit=2</a>
+        </p>
+        <p> Maybe you are looking for 
+        <p> :-) </p>
     </body>
 </html>
 `;
