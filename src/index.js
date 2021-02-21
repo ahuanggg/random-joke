@@ -3,32 +3,36 @@ const http = require('http');
 const url = require('url');
 const query = require('querystring');
 
-console.log(query);
+//console.log(query);
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 const htmlHandler = require('./htmlResponses.js');
-const jsonHandler = require('./jsonResponses.js');
+const jsonHandler = require('./responses.js');
 
 const urlStruct = {
-  '/random-joke': jsonHandler.getRandomJokeResponse,
-  notFound: htmlHandler.get404response,
+	'/random-joke': jsonHandler.getRandomJokeResponse,
+	notFound: htmlHandler.get404response,
 };
 
 const onRequest = (request, response) => {
-  // console.log(request.headers);
+	// console.log(request.headers);
 
-  const parsedUrl = url.parse(request.url);
-  const { pathname } = parsedUrl;
+	const parsedUrl = url.parse(request.url);
+	const { pathname } = parsedUrl;
 
-  const params = query.parse(parsedUrl.query);
-  // const { limit } = params;
+	let acceptedTypes =
+		request.headers.accept && request.headers.accept.split(',');
+	acceptedTypes = acceptedTypes || [];
 
-  if (pathname === '/random-joke') {
-    urlStruct[pathname](request, response, params);
-  } else {
-    urlStruct.notFound(request, response);
-  }
+	const params = query.parse(parsedUrl.query);
+	// const { limit } = params;
+
+	if (pathname === '/random-joke') {
+		urlStruct[pathname](request, response, params, acceptedTypes);
+	} else {
+		urlStruct.notFound(request, response);
+	}
 };
 
 http.createServer(onRequest).listen(port);
