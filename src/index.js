@@ -32,6 +32,8 @@ const onRequest = (request, response) => {
 
 	if (pathname === '/random-joke') {
 		urlStruct[pathname](request, response, params, acceptedTypes, httpMethod);
+	} else if ('/style.css') {
+		urlStruct[pathname](request, response);
 	} else {
 		urlStruct.notFound(request, response);
 	}
