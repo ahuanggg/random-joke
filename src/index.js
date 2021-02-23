@@ -11,29 +11,29 @@ const htmlHandler = require('./htmlResponses.js');
 const jsonHandler = require('./responses.js');
 
 const urlStruct = {
-	'/random-joke': jsonHandler.getRandomJokeResponse,
-	notFound: htmlHandler.getClient,
+  '/random-joke': jsonHandler.getRandomJokeResponse,
+  notFound: htmlHandler.getClient,
 };
 
 const onRequest = (request, response) => {
-	// console.log(request.headers);
+  // console.log(request.headers);
 
-	const parsedUrl = url.parse(request.url);
-	const { pathname } = parsedUrl;
+  const parsedUrl = url.parse(request.url);
+  const { pathname } = parsedUrl;
 
-	let httpMethod = request.method;
+  const httpMethod = request.method;
 
-	let acceptedTypes = request.headers.accept && request.headers.accept.split(',');
-	acceptedTypes = acceptedTypes || [];
+  let acceptedTypes = request.headers.accept && request.headers.accept.split(',');
+  acceptedTypes = acceptedTypes || [];
 
-	const params = query.parse(parsedUrl.query);
-	// const { limit } = params;
+  const params = query.parse(parsedUrl.query);
+  // const { limit } = params;
 
-	if (pathname === '/random-joke') {
-		urlStruct[pathname](request, response, params, acceptedTypes, httpMethod);
-	} else {
-		urlStruct.notFound(request, response);
-	}
+  if (pathname === '/random-joke') {
+    urlStruct[pathname](request, response, params, acceptedTypes, httpMethod);
+  } else {
+    urlStruct.notFound(request, response);
+  }
 };
 
 http.createServer(onRequest).listen(port);

@@ -5,7 +5,7 @@ const query = require('querystring');
 const htmlHandler = require('./htmlResponses.js');
 const responseHandler = require('./responses.js');
 
-const port = process.env.PORT || process.env.NODE_PORT || 3000;
+//const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 const urlStruct = {
 	'/random-joke': responseHandler.getRandomJokeResponse,
@@ -17,7 +17,7 @@ const onRequest = (request, response) => {
 	const parsedUrl = url.parse(request.url);
 	const { pathname } = parsedUrl;
 
-	let httpMethod = request.method;
+	const httpMethod = request.method;
 
 	let acceptedTypes = request.headers.accept && request.headers.accept.split(',');
 	acceptedTypes = acceptedTypes || [];
