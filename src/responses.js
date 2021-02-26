@@ -130,7 +130,7 @@ const getRandomJokeResponse = (request, response, params, acceptedTypes, httpMet
   // console.log(acceptedTypes);
 
   const jokesJSON = getRandomJoke(params.limit);
-  console.log(httpMethod);
+  // console.log(httpMethod);
 
   const jokesXML = JSONtoXML(jokesJSON);
   if (httpMethod === 'GET') {
